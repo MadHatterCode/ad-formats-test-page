@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+
+body {
+  background: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: auto;
+  font-family: 'Roboto', sans-serif;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+ header h1 {
+  font-weight: 500;
+}
+
+ header .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+ header .ad-showcase {
+  margin: 1rem 0;
+  display: flex;
+  max-width: 600px;
+  width: 600px;
+  height: auto;
+  justify-content: space-between;
+  border: 3px solid #333;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+}
+
+header .ad-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #777;
+  border-radius: 12px;
+  cursor: pointer;
+  background: rgb(219,218,236);
+  background: linear-gradient(122deg, rgba(219,218,236,1) 0%, rgba(241,241,241,1) 90%);
+  width: 30%;
+  height: 3rem;
+  transition: all .2s linear;
+  z-index: 2;
+}
+
+header .ad-item:hover {
+  transform: translateY(-2px);
+  filter: brightness(105%);
+}
+
+header .ad-item:active {
+  transform: translateY(0);
+}
+
+ header .ad-item i {
+  margin-right: 1rem;
+  z-index: -3;
+}
+
+ main {
+
+ }
+
+
+
+
+
