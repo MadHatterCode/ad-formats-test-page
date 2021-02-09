@@ -11,9 +11,30 @@ const mediumRectangle  = mediumRectangleBanner(mediumRectangleId);
 let currentlyShowing = false;
 
 
-const renderVideoPlayer = (elId) => {
-  videoPlayer.id = playerId;
+function setAttributes(el, attrs) {
+  for(let key in attrs) {
+    el.setAttribute(key, attrs[key]);
+  }
+}
 
+const adEndEvent = function() {
+  const wmgPlayer = document.getElementById("wmg-player");
+  const wmgPlayerParent = wmgPlayer.parentNode;
+  wmgPlayerParent.style.display = "none";
+}
+
+const renderVideoPlayer = (elId, targetEl) => {
+  videoPlayer.id = playerId;
+  const videoPlayerInner = document.createElement('div')
+  videoPlayerInner.style.cssText = 'width: 640px; height: 360px; margin: auto; transition: all 700ms linear; overflow: hidden';
+  const videoPlayerSlot = document.createElement('div');
+  videoPlayerSlot.id = 'wmg-player'
+  videoPlayerSlot.style.cssText = 'height: inherit; width: inherit';
+  const videoParamScrip = document.createElement('script');
+  setAttributes(videoParamScrip, styles[`${elId}-vid-params`]);
+  videoPlayerInner.append(videoPlayerSlot, videoParamScrip);
+  videoPlayer.append(videoPlayerInner);
+  targetEl.parentElement.replaceChild(videoPlayer, targetEl);
 }
 
 
@@ -26,13 +47,13 @@ const renderMediumRectangle = (elId) => {
 }
 
 
-const renderElement = (id) => {
+const renderElement = (id, targetEl) => {
   if(id === '300x250' && !currentlyShowing) {
     currentlyShowing = true;
     renderMediumRectangle(id);
     adShowCase.append(bannerMediumRectangle);
   } else if(id === 'player' && !currentlyShowing) {
-    renderVideoPlayer(id);
+    renderVideoPlayer(id, targetEl);
   }
 }
 
@@ -40,9 +61,9 @@ const renderElement = (id) => {
 
 const showItem = (event) => {
   const adItemSize = event.target.dataset.adBlock;
-  renderElement(adItemSize);
+  const targetEl = event.target;
+  renderElement(adItemSize, targetEl);
 }
-
 
 
 adItems.forEach((el) => {

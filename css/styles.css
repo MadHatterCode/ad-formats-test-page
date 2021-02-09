@@ -11,6 +11,7 @@ body {
   height: auto;
   font-family: 'Roboto', sans-serif;
   flex-direction: column;
+  transition: all .2s linear;
 }
 
 header {
@@ -43,7 +44,7 @@ header {
   border-radius: 12px;
 }
 
-header .ad-item {
+.ad-item {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,30 +53,56 @@ header .ad-item {
   cursor: pointer;
   background: rgb(219,218,236);
   background: linear-gradient(122deg, rgba(219,218,236,1) 0%, rgba(241,241,241,1) 90%);
-  width: 30%;
   height: 3rem;
   transition: all .2s linear;
   z-index: 2;
+  padding: 0 3rem;
 }
 
-header .ad-item:hover {
+.ad-item player {
+  width: 100%;
+}
+
+.ad-item:hover {
   transform: translateY(-2px);
   filter: brightness(105%);
 }
 
-header .ad-item:active {
+.ad-item:active {
   transform: translateY(0);
 }
 
- header .ad-item i {
+.ad-item i {
   margin-right: 1rem;
   z-index: -3;
 }
 
  main {
-
+   display: flex;
+   max-width: 70%;
+   align-items: center;
+   justify-content: center;
  }
 
+ main .main-content {
+   display: flex;
+   flex-direction: column;
+   width: 65%;
+   margin-right: 2rem;
+ }
+
+ .main-content h1 {
+   text-align: center;
+ }
+
+ main p {
+   text-align: start;
+   margin: 2rem auto;
+ }
+
+ main aside {
+   width: 25%;
+ }
 
 
 
