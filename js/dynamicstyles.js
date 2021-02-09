@@ -5,7 +5,7 @@
      'muted': '',
      'wmg-hide-controls': '',
      'wmg-autoplay':'',
-     'wmg-vast-tag':'https://vid.springserve.com/vast/619270?w={{WIDTH}}&h={{HEIGHT}}&cb={{CACHEBUSTER}}&url={{ENCODED_URL}}&us_privacy={{US_PRIVACY}}',
+     'wmg-vast-tag':'https://vid.springserve.com/vast/628965?w={{WIDTH}}&h={{HEIGHT}}&cb={{CACHEBUSTER}}&url={{ENCODED_URL}}&us_privacy={{US_PRIVACY}}',
      'wmg-end-event': 'adEndEvent',
      'src': 'https://d3f4nuq5dskrej.cloudfront.net/js/vpl/adwmg_vpl.js'
    }

@@ -97,11 +97,15 @@ header {
 
  main p {
    text-align: start;
-   margin: 2rem auto;
+   margin: 1rem auto;
  }
 
  main aside {
+   min-width: 300px;
+   border: 1px solid #333;
+   padding: 1rem 2rem ;
    width: 25%;
+   margin-top: -2rem;
  }
 
 
