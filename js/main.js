@@ -59,23 +59,23 @@ const renderVideoPlayer = (elId) => {
 }
 
 
-const renderMediumRectangle = (elId) => {
+const renderMediumRectangle = (elId, targetEl) => {
   bannerMediumRectangle.id = mediumRectangleId;
   bannerMediumRectangle.style = styles[elId];
   const bannerMediumRectangleScript = document.createElement('script');
   bannerMediumRectangleScript.innerHTML = mediumRectangle;
   bannerMediumRectangle.append(bannerMediumRectangleScript);
+  replaceElement(bannerMediumRectangle, targetEl)
 }
 
 
 const renderElement = (id, targetEl) => {
-  if(id === '300x250' && currentlyShowing) {
+  if(id === '300x250') {
     currentlyShowing = true;
-    renderMediumRectangle(id);
+    renderMediumRectangle(id, targetEl);
     adShowCase.append(bannerMediumRectangle);
   } else if(id === 'player') {
-      console.log('clicked')
-      renderVideoPlayer(id, targetEl);
+    renderVideoPlayer(id)
   }
 }
 

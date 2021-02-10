@@ -105,7 +105,17 @@ header {
    border: 1px solid #333;
    padding: 1rem 2rem ;
    width: 25%;
-   margin-top: -2rem;
+   margin-top: 5rem;
+ }
+
+ main aside .aside-top-banner {
+   width: 300px;
+   height: 250px;
+   background-color: #999999;
+   margin: 0 auto;
+   display: flex;
+   align-items: center;
+   justify-content: center;
  }
 
 
