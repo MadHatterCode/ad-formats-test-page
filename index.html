@@ -24,30 +24,14 @@
 <body>
 
 <header>
-  <h1>Welcome to WMG Test Page</h1>
-  <div class="container">
+    <h1>Welcome to WMG Test Page</h1>
     <p>Below you can click on desired ad format to see it rendered on the page</p>
-<!--    <div class="ad-showcase" id="ad-showcase">-->
-<!--      <div data-ad-block="300x250" class="ad-item" id="ad-item">-->
-<!--        <i class="fas fa-angle-down"></i>-->
-<!--        300x250-->
-<!--      </div>-->
-      <div class="ad-item">
-        <i class="fas fa-angle-down"></i>
-        300x600
-      </div>
-      <div class="ad-item">
-        <i class="fas fa-angle-down"></i>
-        Player
-      </div>
-    </div>
-  </div>
 </header>
 
 
 <main>
   <div class="main-content">
-      <h1>Test article</h1>
+      <h1>Showcase article</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut debitis impedit perspiciatis quasi sint! Amet culpa obcaecati perferendis repellendus voluptatum. Ad consectetur consequatur dicta dolorum earum fugiat harum, id in laboriosam libero minus molestias perferendis quibusdam quisquam quod recusandae reprehenderit, sit soluta velit veritatis? Consequuntur laudantium omnis perferendis tempore veniam.</p>
 
 
@@ -65,23 +49,35 @@
 
   <aside>
     <div class="aside-top-banner">
-      <div data-ad-block="300x250" class="ad-item">
+      <div data-ad-block="video-banner" class="ad-item player">
         <i class="fas fa-angle-down"></i>
-        300x250
+        Display + Video
       </div>
     </div>
-    <h3>Side content</h3>
+    <h3>Additional content</h3>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium deserunt laboriosam magnam, minus recusandae repellat repellendus? Ab deleniti fuga nisi!</p>
+    <div class="aside-half-page-banner">
+      <div data-ad-block="300x600" class="ad-item">
+        <i class="fas fa-angle-down"></i>
+        300x600
+      </div>
+    </div>
   </aside>
-
-
 </main>
 
+  <div class="sticky-top-fluid hidden-on-scroll">
+    <div data-ad-block="fluidx90" class="ad-item">
+      <i class="fas fa-angle-down"></i>
+      Sticky fluid top
+    </div>
+  </div>
 
-
-
-
-
+  <div class="sticky-bottom-fluid">
+    <div data-ad-block="fluidx180" class="ad-item">
+      <i class="fas fa-angle-down"></i>
+      Sticky fluid bottom
+    </div>
+  </div>
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
