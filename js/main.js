@@ -63,6 +63,9 @@ const renderSlider = function(elId, targetEl) {
   videoPlayerSliderInner.append(videoPlayerSliderSlot, videoParamScrip, adEndScript);
   videoPlayerSlider.append(videoPlayerSliderInner);
   renderSlot.append(videoPlayerSlider);
+  setTimeout(() => {
+    window.scrollBy(0, -7)
+  }, 500)
 
 }
 
@@ -107,6 +110,7 @@ const renderStaticBanner = (elId, targetEl) => {
   bannerPlacementScript.innerText = bannerBody;
   bannerPlacement.append(bannerPlacementScript);
   replaceElement(bannerPlacement, targetEl)
+
 }
 
 
