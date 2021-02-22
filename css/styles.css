@@ -8,6 +8,7 @@ body {
   align-items: center;
   justify-content: center;
   width: 100vw;
+  max-width: 100%;
   min-height: 100vh;
   font-family: 'Roboto', sans-serif;
   flex-direction: column;
@@ -86,13 +87,16 @@ header {
 
  main .main-content {
    height: 100vh;
+   margin-top: -5rem;
    display: flex;
    flex-direction: column;
    width: 65%;
    margin-right: 2rem;
  }
 
- .main-content h1 {
+ .main-content h2 {
+   margin: 0;
+   padding: 0;
    text-align: center;
  }
 
@@ -106,7 +110,7 @@ header {
    border: 1px solid #333;
    padding: 1rem 2rem ;
    width: 25%;
-   margin-top: 5rem;
+   margin-top: 2rem;
  }
 
  main aside .aside-top-banner {
@@ -139,7 +143,7 @@ header {
    justify-content: center;
    width: 100%;
    background: rgba(222,222,222, 0.9);
-   transition: all .4s linear;
+   transition: all .3s linear;
  }
 
 .sticky-top-fluid {
@@ -152,14 +156,62 @@ header {
   justify-content: center;
   width: 100%;
   background: rgba(222,222,222, 0.9);
-  transition: all .4s linear;
+  transition: all .3s linear;
 }
 
  .hidden-on-scroll {
-   display: none;
+   opacity: 0;
+   visibility: hidden;
    z-index: -5;
    height: 0;
  }
+
+ .recommended-video {
+   position: relative;
+   width: 400px;
+   heigh:250px;
+   left: 0;
+   bottom:400px;
+   transform: translateX(-192%);
+   transition: all .4s ease-in;
+   display: flex;
+ }
+
+ .recommended-render-slot {
+   position: absolute;
+   top: 0;
+   left: 0;
+   height: inherit;
+   width: inherit;
+ }
+
+
+ .recommended-video.active {
+   position: absolute;
+   left: 0;
+   bottom:0;
+   transform: translateX(0);
+ }
+
+ .recommended-video .ad-item {
+   position: absolute;
+   display: flex;
+   justify-content: center;
+   top:0;
+   right: 0;
+   width: 100%;
+   transform: translate(50%, 100%) rotate(90deg) scale(0.90);
+   padding: 0 1rem;
+ }
+
+ .recommended-video .ad-item span {
+  transform: rotate(-90deg);
+   letter-spacing: 10px;
+   font-weight: 700;
+   text-transform: uppercase;
+ }
+
+
 
 
  /*footer {*/

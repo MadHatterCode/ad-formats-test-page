@@ -8,7 +8,7 @@ const topStickyBanner = document.querySelector('.sticky-top-fluid');
 const bottomStickyBanner = document.querySelector('.sticky-bottom-fluid');
 let scrollHeight = 0;
 
-const sizeIdPairs = {'300x250': 'wmg-ad-300x250', '300x600': 'wmg-ad-300x600', 'player': 'wmg-ad-player', 'fluid90': 'wmg-ad-fluidx90', 'fluidx180': 'wmg-ad-fluidx180', 'video-banner': 'wmg-video-banner'}
+const sizeIdPairs = {'300x250': 'wmg-ad-300x250', '300x600': 'wmg-ad-300x600', 'player': 'wmg-ad-player', 'fluid90': 'wmg-ad-fluidx90', 'fluidx180': 'wmg-ad-fluidx180', 'video-banner': 'wmg-video-banner', 'slider':'slider-video'}
 
 function setAttributes(el, attrs) {
   for(let key in attrs) {
@@ -28,6 +28,41 @@ const checkScroll = () => {
 
 const replaceElement = (newEl, replaceEl) => {
   replaceEl.parentElement.replaceChild(newEl, replaceEl)
+}
+
+
+
+const renderSlider = function(elId, targetEl) {
+  let renderEl = targetEl.closest('div.recommended-video');
+  if(renderEl.classList.contains('active')) {
+    return
+  }
+  renderEl.classList.toggle('active');
+  const renderSlot = document.querySelector('.recommended-render-slot')
+  const videoPlayerSlider = document.createElement('div');
+
+  let playerWidth = renderEl.offsetWidth * 0.9;
+  let playerHeight = playerWidth/1.7;
+  videoPlayerSlider.id = sizeIdPairs[elId];
+  const videoPlayerSliderInner = document.createElement('div');
+  videoPlayerSliderInner.style.cssText = `width: ${playerWidth}px; height: ${playerHeight}px; margin: auto; transition: all 700ms linear; overflow: hidden`;
+  const videoPlayerSliderSlot = document.createElement('div');
+  videoPlayerSliderSlot.id = 'wmg-player-slider'
+  videoPlayerSliderSlot.style.cssText = 'height: inherit; width: inherit';
+  const videoParamScrip = document.createElement('script');
+  setAttributes(videoParamScrip, styles[`${elId}-vid-params`]);
+  const adEndScript = document.createElement('script');
+  adEndScript.textContent = `
+        function adEndEventSlider() {
+         const videoPlayerSliderBlock = document.getElementById('slider-video');
+         videoPlayerSliderBlock.innerHTML = '';
+         renderEl.classList.remove('active');
+         videoPlayerSliderBlock.remove();
+        }
+  `;
+  videoPlayerSliderInner.append(videoPlayerSliderSlot, videoParamScrip, adEndScript);
+  videoPlayerSlider.append(videoPlayerSliderInner);
+  renderSlot.append(videoPlayerSlider);
 }
 
 
@@ -136,16 +171,20 @@ const renderElement = (id, targetEl) => {
     renderFluidBanner(id, targetEl)
   } else if(id === 'video-banner') {
     renderVideoBanner(id, targetEl)
+  } else if (id === 'slider') {
+    renderSlider(id, targetEl)
+  } else {
+    return;
   }
 }
 
 
 
 const showItem = (event) => {
-  const adItemSize = event.target.dataset.adBlock;
+  const adItemSize = event.target.closest('div').dataset.adBlock;
   const targetEl = event.target;
   renderElement(adItemSize, targetEl);
-  targetEl.removeEventListener('click', showItem)
+  // targetEl.removeEventListener('click', showItem)
 }
 
 
