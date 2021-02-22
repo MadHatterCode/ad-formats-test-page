@@ -172,7 +172,7 @@ header {
    heigh:250px;
    left: 0;
    bottom:400px;
-   transform: translateX(-192%);
+   transform: translateX(calc(-100% - 370px));
    transition: all .4s ease-in;
    display: flex;
  }
@@ -187,9 +187,7 @@ header {
 
 
  .recommended-video.active {
-   position: absolute;
-   left: 0;
-   bottom:0;
+
    transform: translateX(0);
  }
 
