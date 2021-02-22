@@ -172,7 +172,7 @@ header {
    heigh:250px;
    left: 0;
    bottom:400px;
-   transform: translateX(calc(-100% - 370px));
+   transform: translateX(-790px);
    transition: all .4s ease-in;
    display: flex;
  }
@@ -187,8 +187,7 @@ header {
 
 
  .recommended-video.active {
-
-   transform: translateX(0);
+   transform: translateX(-430px);
  }
 
  .recommended-video .ad-item {
@@ -197,8 +196,7 @@ header {
    justify-content: center;
    top:0;
    right: 0;
-   width: 100%;
-   transform: translate(50%, 100%) rotate(90deg) scale(0.90);
+   transform: translate(50%, 150%) rotate(90deg) scale(0.90);
    padding: 0 1rem;
  }
 

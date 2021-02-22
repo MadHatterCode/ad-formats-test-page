@@ -40,7 +40,6 @@ const renderSlider = function(elId, targetEl) {
   renderEl.classList.toggle('active');
   const renderSlot = document.querySelector('.recommended-render-slot')
   const videoPlayerSlider = document.createElement('div');
-
   let playerWidth = renderEl.offsetWidth * 0.9;
   let playerHeight = playerWidth/1.7;
   videoPlayerSlider.id = sizeIdPairs[elId];
@@ -55,14 +54,16 @@ const renderSlider = function(elId, targetEl) {
   adEndScript.textContent = `
         function adEndEventSlider() {
          const videoPlayerSliderBlock = document.getElementById('slider-video');
-         videoPlayerSliderBlock.innerHTML = '';
+         const renderEl = document.querySelector('.recommended-video')
          renderEl.classList.remove('active');
+         videoPlayerSliderBlock.innerHTML = '';
          videoPlayerSliderBlock.remove();
         }
   `;
   videoPlayerSliderInner.append(videoPlayerSliderSlot, videoParamScrip, adEndScript);
   videoPlayerSlider.append(videoPlayerSliderInner);
   renderSlot.append(videoPlayerSlider);
+
 }
 
 
