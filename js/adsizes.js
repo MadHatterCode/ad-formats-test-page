@@ -68,10 +68,3 @@ export class BannerBody {
     `
   }
 }
-
-export const videoPlayer = (videoPlayerId) => {
-  return `
-
-  `;
-
-}

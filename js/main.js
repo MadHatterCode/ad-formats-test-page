@@ -15,10 +15,11 @@ let scrollHeight = 0;
 const sizeIdPairs = {'300x250': 'wmg-ad-300x250', '300x600': 'wmg-ad-300x600', 'player': 'wmg-ad-player', 'fluid90': 'wmg-ad-fluidx90', 'fluidx180': 'wmg-ad-fluidx180', 'video-banner': 'wmg-video-banner', 'slider':'slider-video'}
 
 
-tippy('#video-banner', {
+tippy('.aside-top-banner', {
   content: tipTemplate.innerHTML,
   allowHTML: true
 })
+
 
 function setAttributes(el, attrs) {
   for(let key in attrs) {
@@ -121,7 +122,6 @@ const renderStaticBanner = (elId, targetEl) => {
   bannerPlacementScript.innerText = bannerBody;
   bannerPlacement.append(bannerPlacementScript);
   replaceElement(bannerPlacement, targetEl)
-
 }
 
 
@@ -135,8 +135,8 @@ const renderFluidBanner = (elId, targetEl) => {
   const bannerBody = new BannerBody(placementId, placementSize).createFluidBannerBody();
   const fluidPlacementScript = document.createElement('script');
   fluidPlacementScript.innerText = bannerBody;
-  fluidBannerPlacement.append(fluidPlacementScript)
-  replaceElement(fluidBannerPlacement, targetEl)
+  fluidBannerPlacement.append(fluidPlacementScript);
+  replaceElement(fluidBannerPlacement, targetEl);
 }
 
 const renderVideoBanner = (elId, targetEl) => {
@@ -147,7 +147,7 @@ const renderVideoBanner = (elId, targetEl) => {
   const videoPlayerInner = document.createElement('div');
   videoPlayerInner.style.cssText = `width: ${playerWidth}px; height: ${playerHeight}px; margin: auto; transition: all 700ms linear; overflow: hidden; position:relative`;
   const videoPlayerSlot = document.createElement('div');
-  videoPlayerSlot.id = 'wmg-player-in-banner'
+  videoPlayerSlot.id = 'wmg-player'
   videoPlayerSlot.style.cssText = 'height: inherit; width: inherit';
   const videoParamScrip = document.createElement('script');
   setAttributes(videoParamScrip, styles['player-vid-params']);
@@ -160,7 +160,7 @@ const renderVideoBanner = (elId, targetEl) => {
   const adEndScript = document.createElement('script');
   adEndScript.textContent = `
         function adEndEvent() {
-         const videoPlayerBlock = document.getElementById('wmg-player-in-banner');
+         const videoPlayerBlock = document.getElementById('wmg-ad-player');
          videoPlayerBlock.innerHTML = '';
          videoPlayerBlock.remove();
         }
