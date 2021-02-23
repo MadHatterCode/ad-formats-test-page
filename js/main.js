@@ -1,14 +1,24 @@
 import {staticBannerBody} from './adsizes';
 import {BannerBody} from "./adsizes";
 import {styles} from './dynamicstyles';
+import tippy from "tippy.js";
 const mainContent = document.querySelector('.main-content');
 const adItems = document.querySelectorAll('.ad-item');
 const playerRenderSlot = document.getElementById('player-render-slot');
 const topStickyBanner = document.querySelector('.sticky-top-fluid');
 const bottomStickyBanner = document.querySelector('.sticky-bottom-fluid');
+const videoPlayer = document.createElement('div');
+const tipTemplate = document.getElementById('template')
 let scrollHeight = 0;
 
+
 const sizeIdPairs = {'300x250': 'wmg-ad-300x250', '300x600': 'wmg-ad-300x600', 'player': 'wmg-ad-player', 'fluid90': 'wmg-ad-fluidx90', 'fluidx180': 'wmg-ad-fluidx180', 'video-banner': 'wmg-video-banner', 'slider':'slider-video'}
+
+
+tippy('#video-banner', {
+  content: tipTemplate.innerHTML,
+  allowHTML: true
+})
 
 function setAttributes(el, attrs) {
   for(let key in attrs) {
@@ -56,6 +66,7 @@ const renderSlider = function(elId, targetEl) {
          const videoPlayerSliderBlock = document.getElementById('slider-video');
          const renderEl = document.querySelector('.recommended-video')
          renderEl.classList.remove('active');
+         currentlyPlaying = false;
          videoPlayerSliderBlock.innerHTML = '';
          videoPlayerSliderBlock.remove();
         }
@@ -71,10 +82,9 @@ const renderSlider = function(elId, targetEl) {
 
 
 const renderVideoPlayer = (elId) => {
-      const videoPlayer = document.createElement('div');
-        if(videoPlayer.offsetHeight) {
-          return
-        }
+      if(videoPlayer.offsetHeight) {
+        return
+      }
       let playerWidth = mainContent.offsetWidth * 0.8;
       let playerHeight = playerWidth/1.7;
       videoPlayer.id = sizeIdPairs[elId];
@@ -89,6 +99,7 @@ const renderVideoPlayer = (elId) => {
       adEndScript.textContent = `
         function adEndEvent() {
          const videoPlayerBlock = document.getElementById('wmg-ad-player');
+         currentlyPlaying = false;
          videoPlayerBlock.innerHTML = '';
          videoPlayerBlock.remove();
 
@@ -130,19 +141,16 @@ const renderFluidBanner = (elId, targetEl) => {
 
 const renderVideoBanner = (elId, targetEl) => {
   const videoBannerPlayer = document.createElement('div');
-  if(videoBannerPlayer.offsetHeight) {
-    return;
-  }
   let playerWidth = targetEl.parentElement.offsetWidth;
   let playerHeight = targetEl.parentElement.offsetHeight;
   videoBannerPlayer.id = sizeIdPairs[elId];
   const videoPlayerInner = document.createElement('div');
   videoPlayerInner.style.cssText = `width: ${playerWidth}px; height: ${playerHeight}px; margin: auto; transition: all 700ms linear; overflow: hidden; position:relative`;
   const videoPlayerSlot = document.createElement('div');
-  videoPlayerSlot.id = 'wmg-player'
+  videoPlayerSlot.id = 'wmg-player-in-banner'
   videoPlayerSlot.style.cssText = 'height: inherit; width: inherit';
   const videoParamScrip = document.createElement('script');
-  setAttributes(videoParamScrip, styles[`player-vid-params`]);
+  setAttributes(videoParamScrip, styles['player-vid-params']);
   const videoInBannerContainer = document.createElement('div');
   setAttributes(videoInBannerContainer, styles[elId])
   const videoInBannerContent = document.createElement('div');
@@ -152,10 +160,9 @@ const renderVideoBanner = (elId, targetEl) => {
   const adEndScript = document.createElement('script');
   adEndScript.textContent = `
         function adEndEvent() {
-         const videoPlayerBlock = document.getElementById('wmg-ad-player');
+         const videoPlayerBlock = document.getElementById('wmg-player-in-banner');
          videoPlayerBlock.innerHTML = '';
          videoPlayerBlock.remove();
-
         }
   `;
   videoInBannerScript.innerHTML = videoInBannerContentHTML;

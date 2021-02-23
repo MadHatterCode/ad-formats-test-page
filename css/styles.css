@@ -87,7 +87,7 @@ header {
 
  main .main-content {
    height: 100vh;
-   margin-top: -5rem;
+   margin-top: -8rem;
    display: flex;
    flex-direction: column;
    width: 65%;
@@ -167,12 +167,13 @@ header {
  }
 
  .recommended-video {
-   position: relative;
+   z-index: 7;
+   position: fixed;
    width: 400px;
-   heigh:250px;
+   heigh:calc(400/1.7)px;
    left: 0;
    bottom:400px;
-   transform: translateX(-790px);
+   transform: translateX(-95%);
    transition: all .4s ease-in;
    display: flex;
  }
@@ -187,7 +188,7 @@ header {
 
 
  .recommended-video.active {
-   transform: translateX(-430px);
+   transform: translateX(0);
  }
 
  .recommended-video .ad-item {
@@ -262,6 +263,31 @@ header {
     max-width: 80%;
   }
 
+  .recommended-video {
+    position: fixed;
+    width: 280px;
+    heigh: calc(250/1.7)px;
+    left: 0;
+    bottom:350px;
+    transform: translateX(-93%);
+  }
+
+  .recommended-video .ad-item {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top:0;
+    right: 0;
+    transform: translate(50%, 82%) rotate(90deg) scale(0.8);
+    padding: 0 0.5rem;
+  }
+
+  .recommended-video .ad-item span {
+    transform: rotate(-90deg);
+    letter-spacing: 8px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
 }
 
 
