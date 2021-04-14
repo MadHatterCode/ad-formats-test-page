@@ -1,13 +1,10 @@
-import {staticBannerBody} from './adsizes';
 import {BannerBody} from "./adsizes";
 import {styles} from './dynamicstyles';
 import tippy from "tippy.js";
 const mainContent = document.querySelector('.main-content');
-const adItems = document.querySelectorAll('.ad-item');
-const playerRenderSlot = document.getElementById('player-render-slot');
+const adItems = document.querySelectorAll('.wmg-ad-slot');
 const topStickyBanner = document.querySelector('.sticky-top-fluid');
 const bottomStickyBanner = document.querySelector('.sticky-bottom-fluid');
-const videoPlayer = document.createElement('div');
 const tipTemplate = document.getElementById('template')
 let scrollHeight = 0;
 
@@ -60,7 +57,7 @@ const renderSlider = function(elId, targetEl) {
   videoPlayerSliderSlot.id = 'wmg-player-slider'
   videoPlayerSliderSlot.style.cssText = 'height: inherit; width: inherit';
   const videoParamScrip = document.createElement('script');
-  setAttributes(videoParamScrip, styles[`${elId}-vid-params`]);
+  setAttributes(videoParamScrip, styles[`slider-vid-params`]);
   const adEndScript = document.createElement('script');
   adEndScript.textContent = `
         function adEndEventSlider() {
@@ -76,13 +73,16 @@ const renderSlider = function(elId, targetEl) {
   videoPlayerSlider.append(videoPlayerSliderInner);
   renderSlot.append(videoPlayerSlider);
   setTimeout(() => {
-    window.scrollBy(0, -7)
+    window.scrollBy(0, -10)
   }, 500)
 
 }
 
 
 const renderVideoPlayer = (elId) => {
+
+  const playerRenderSlot = document.getElementById('player-render-slot');
+  const videoPlayer = document.createElement('div');
       if(videoPlayer.offsetHeight) {
         return
       }
@@ -196,7 +196,7 @@ const showItem = (event) => {
   const adItemSize = event.target.closest('div').dataset.adBlock;
   const targetEl = event.target;
   renderElement(adItemSize, targetEl);
-  // targetEl.removeEventListener('click', showItem)
+  targetEl.removeEventListener('click', showItem);
 }
 
 

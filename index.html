@@ -27,53 +27,57 @@
 
 <header>
     <h1>Welcome to WMG Test Page</h1>
-    <p>Below you can click on desired ad format to see it rendered on the page</p>
+    <h2>Click to choose the best format for your campaign</h2>
 </header>
 
 
-<main>
+<main class="test-page">
   <div class="main-content">
-      <h2>Showcase article</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut debitis impedit perspiciatis quasi sint! Amet culpa obcaecati perferendis repellendus voluptatum. Ad consectetur consequatur dicta dolorum earum fugiat harum, id in laboriosam libero minus molestias perferendis quibusdam quisquam quod recusandae reprehenderit, sit soluta velit veritatis? Consequuntur laudantium omnis perferendis tempore veniam.</p>
-
-
-    <div data-ad-block="player" class="ad-item player">
+      <p>While choosing the format for the highest revenue from your source, video will be the best possible solution available. It grabs the audience’s attention faster and better than any other type of content. They are designed to be 100% viewable and playing when the unit is onscreen. </p>
+    <div data-ad-block="player" class="wmg-ad-slot player">
       <i class="fas fa-angle-down"></i>
-      Player
+      Outstream
     </div>
     <div id="player-render-slot"></div>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid at beatae blanditiis consequatur delectus deleniti distinctio doloribus dolorum eos facere fugit hic incidunt inventore ipsa iure iusto, laboriosam, maxime modi neque nihil nobis odit pariatur provident rem saepe sit tempore unde ut voluptates voluptatum? Consectetur hic nam perferendis possimus sed.</p>
+   <p> Outstream is the one of the most wide-spread formats with no limits to placements.
+     The format is seamlessly integrated within desktop and mobile and is non-intrusive to the user experience. This ensures high CPM's and higher earnings for you.</p>
   </div>
 
-
   <aside>
-    <div class="aside-top-banner">
-      <div data-ad-block="video-banner" class="ad-item player">
-        <i class="fas fa-angle-down"></i>
-        Display + Video
+    <div class="in-banner-video">
+      <h3>In-Banner Video</h3>
+      <p>Choosing this type of ad will guarantee you the highest results in revenue in combine with a high fill rate. </p>
+      <div class="aside-top-banner">
+        <div data-ad-block="video-banner" class="wmg-ad-slot player">
+          <i class="fas fa-angle-down"></i>
+          Display + Video
+        </div>
       </div>
     </div>
-    <h3>Additional content</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium deserunt laboriosam magnam, minus recusandae repellat repellendus? Ab deleniti fuga nisi!</p>
-    <div class="aside-half-page-banner">
-      <div data-ad-block="300x600" class="ad-item">
-        <i class="fas fa-angle-down"></i>
-        300x600
+    <div class="skyscraper">
+      <h3>Skyscraper(300x600)</h3>
+      <p>The full skyscraper banner size is a wide vertical banner that is the most favorite among advertisers who care and need more space to share their message.
+        This format is also a preferable for publishers since it draws more attention. And could be converted into more clicks and higher profit.
+      </p>
+      <div class="aside-half-page-banner">
+        <div data-ad-block="300x600" class="wmg-ad-slot">
+          <i class="fas fa-angle-down"></i>
+          300x600
+        </div>
       </div>
     </div>
   </aside>
 </main>
 
   <div class="sticky-top-fluid hidden-on-scroll">
-    <div data-ad-block="fluidx90" class="ad-item">
+    <div data-ad-block="fluidx90" class="wmg-ad-slot">
       <i class="fas fa-angle-down"></i>
       Sticky banner fluid top
     </div>
   </div>
 
   <div class="sticky-bottom-fluid">
-    <div data-ad-block="fluidx180" class="ad-item">
+    <div data-ad-block="fluidx180" class="wmg-ad-slot">
       <i class="fas fa-angle-down"></i>
       Sticky banner fluid bottom
     </div>
@@ -81,16 +85,16 @@
 
   <div class="recommended-video">
     <div class="recommended-render-slot"></div>
-    <div data-ad-block="slider" class="ad-item">
+    <div data-ad-block="slider" class="wmg-ad-slot">
       <i class="fas fa-angle-up"></i>
       <span>S</span><span>l</span><span>i</span><span>d</span><span>e</span><span>r</span>
     </div>
   </div>
 
  <div id="template" class="template" style="display: none;">
-   <div class="tip-container" style="display: flex; align-items: center; justify-content: center; flex-direction: column">
-     <h5 style="font-size: 1.1rem">This banner plays in the following order:</h5>
-     <ul style="list-style: none; padding: 0 1rem; font-size: 1.1rem; display: flex">
+   <div class="tip-container" style="display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center">
+     <h5 style="font-size: 1.1rem">This is a unique type of format that consists of a mediation:</h5>
+     <ul style="list-style: none; padding: 0 1rem; font-size: 1.1rem; display: flex; align-items: center; justify-content: center">
        <li><span></span> Banner</li>
        <li><span>></span> Video</li>
        <li><span>></span> Banner</li>
@@ -102,8 +106,7 @@
 
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
-  <script src="https://www.google-analytics.com/analytics.js" async></script>
+  <script src="js/main-formats.js"></script>
 </body>
 
 </html>

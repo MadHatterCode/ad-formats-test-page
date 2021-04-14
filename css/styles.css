@@ -43,7 +43,7 @@ header {
   border-radius: 12px;
 }
 
-.ad-item {
+.wmg-ad-slot {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -58,62 +58,76 @@ header {
   padding: 0 3rem;
 }
 
-.ad-item player {
+.wmg-ad-slot player {
   width: 100%;
 }
 
-.ad-item:hover {
+.wmg-ad-slot:hover {
   transform: translateY(-2px);
   filter: brightness(105%);
 }
 
-.ad-item:active {
+.wmg-ad-slot:active {
   transform: translateY(0);
 }
 
-.ad-item i {
+.wmg-ad-slot i {
   margin-right: 1rem;
   z-index: -3;
 }
 
- main {
+ .test-page {
    min-height: 100vh;
    overflow-x: hidden;
    display: flex;
    max-width: 70%;
-   align-items: center;
+   align-items: flex-start;
    justify-content: center;
+   position: relative;
  }
 
- main .main-content {
+ .test-page .main-content {
    height: 100vh;
-   margin-top: -8rem;
+   flex: 1;
    display: flex;
    flex-direction: column;
    width: 65%;
    margin-right: 2rem;
+   margin-top: 2rem;
  }
 
- .main-content h2 {
+ .main-content h3 {
    margin: 0;
    padding: 0;
    text-align: center;
  }
 
- main p {
+.test-page p {
    text-align: start;
    margin: 1rem auto;
  }
 
- main aside {
+.test-page aside {
    min-width: 300px;
    border: 1px solid #333;
    padding: 1rem 2rem ;
    width: 25%;
    margin-top: 2rem;
+   text-align: center;
  }
 
- main aside .aside-top-banner {
+.test-page aside p{
+  text-align: center;
+}
+
+.test-page aside .in-banner-video {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.test-page aside .aside-top-banner {
    width: 300px;
    height: 250px;
    background-color: #999999;
@@ -123,7 +137,14 @@ header {
    justify-content: center;
  }
 
- main aside .aside-half-page-banner {
+
+.test-page aside .skyscraper {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+ }
+.test-page aside .aside-half-page-banner {
    width: 300px;
    height: 600px;
    background-color:#999999;
@@ -131,6 +152,7 @@ header {
    display: flex;
    align-items: center;
    justify-content: center;
+   flex-direction: column;
  }
 
  .sticky-bottom-fluid {
@@ -191,7 +213,7 @@ header {
    transform: translateX(0);
  }
 
- .recommended-video .ad-item {
+ .recommended-video .wmg-ad-slot {
    position: absolute;
    display: flex;
    justify-content: center;
@@ -201,26 +223,13 @@ header {
    padding: 0 1rem;
  }
 
- .recommended-video .ad-item span {
+ .recommended-video .wmg-ad-slot span {
   transform: rotate(-90deg);
    letter-spacing: 10px;
    font-weight: 700;
    text-transform: uppercase;
  }
 
-
-
-
-
-
- /*footer {*/
- /*  position: relative;*/
- /*  bottom: 0;*/
- /*  width: 100%;*/
- /*  display: flex;*/
- /*  justify-content: center;*/
- /*  align-items: center;*/
- /*}*/
 
 @media only screen and (max-width: 850px) {
 
@@ -242,7 +251,7 @@ header {
     padding: 0;
   }
 
-  main aside .aside-half-page-banner {
+  main aside .skyscraper {
     display: none;
   }
 
@@ -260,7 +269,7 @@ header {
   }
 
   main aside {
-    margin-top: 1rem;
+    margin: 1rem auto;
     width: 100%;
     max-width: 80%;
   }
@@ -274,7 +283,7 @@ header {
     transform: translateX(-93%);
   }
 
-  .recommended-video .ad-item {
+  .recommended-video .wmg-ad-slot {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -284,7 +293,7 @@ header {
     padding: 0 0.5rem;
   }
 
-  .recommended-video .ad-item span {
+  .recommended-video .wmg-ad-slot span {
     transform: rotate(-90deg);
     letter-spacing: 8px;
     font-weight: 500;
